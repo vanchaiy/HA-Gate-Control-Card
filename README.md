@@ -111,19 +111,35 @@ type: grid
 cards:
   - show_state: true
     show_name: true
-    camera_view: auto
+    camera_view: live
     fit_mode: cover
-    name: Gate Status
     type: picture-entity
-    image: https://demo.home-assistant.io/stub_config/bedroom.png
-    camera_image: camera.c3tn_bb0839328
-    entity: sensor.ha_sgm_2026_status
+    name: Gate Status
+    entity: sensor.smartgate_cfa4_status
+    camera_image: camera.wip30299u_media_profile1
+    card_mod:
+      style:
+        hui-image $: |
+          img,
+          .container {
+            filter: none !important;
+          }
   - type: custom:gate-control-card
-    status_entity: sensor.ha_sgm_2026_status
-    open_entity: button.ha_sgm_2026_open
-    close_entity: button.ha_sgm_2026_close
-    stop_entity: button.ha_sgm_2026_stop
+    status_entity: sensor.smartgate_cfa4_status
+    open_entity: button.smartgate_cfa4_open
+    close_entity: button.smartgate_cfa4_close
+    stop_entity: button.smartgate_cfa4_stop
     image_hide: true
+    buttons:
+      open:
+        name: เปิด
+        icon: mdi:arrow-expand-horizontal
+      stop:
+        name: หยุด
+        icon: mdi:stop
+      close:
+        name: ปิด
+        icon: mdi:arrow-collapse-horizontal
 ```
 
 
